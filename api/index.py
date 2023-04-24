@@ -1,5 +1,4 @@
 from flask import Flask, jsonify
-from Utility import *
 import json
 
 
@@ -16,6 +15,5 @@ def home():
 
 @app.route('/cords=<string:cords>')
 def cordinates(cords):
-    cordsArray = cords.split(',')
-    report = createReport(float(cordsArray[0]), float(cordsArray[1]))
-    return jsonify(report)
+    
+    return jsonify(cords)
