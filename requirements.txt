@@ -1,4 +1,1 @@
 Flask==2.2.2
-geopy==2.3.0
-csv
-json
