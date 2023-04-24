@@ -12,6 +12,6 @@ def home():
 
     return jsonify(data)
 
-@app.route('/about')
-def about():
-    return 'About'
+@app.route('/<string>')
+def cordinates(cords):
+    return cords
