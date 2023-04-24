@@ -1,10 +1,16 @@
-from flask import Flask
+from flask import Flask, jsonify
+import json
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return 'Hello, World!'
+
+    with open('nearestStation.json') as f:
+        data = json.load(f)
+
+
+    return jsonify(data)
 
 @app.route('/about')
 def about():
