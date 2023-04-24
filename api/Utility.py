@@ -84,8 +84,9 @@ def json5buildings(list):
     
 
     #Ouput the JSON information
-    with open("nearestStation.json", "w") as outfile:
-        json.dump(allBuildings, outfile, indent=4)
+    file = json.dump(allBuildings, indent=4)
+    
+    return file
 
 
 """
