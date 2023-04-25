@@ -17,5 +17,9 @@ def home():
 @app.route('/cords=<string:cords>')
 def cordinates(cords):
 
-    
-    return jsonify(cords)
+    cordsArray = cords.split(',')
+    lat = float(cordsArray[0])
+    lon = float(cordsArray[1])
+
+    newCords = Coordinates(lat, lon)
+    return str(lat) + ',' + str(lon)
