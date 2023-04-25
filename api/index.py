@@ -25,4 +25,4 @@ def cordinates(cords):
     lon = 42.00 
 
     #newCords = Coordinates(lat, lon)
-    return str(lat) + ',' + str(lon)
+    return "str(lat) + ',' + str(lon)"
