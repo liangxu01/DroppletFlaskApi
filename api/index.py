@@ -1,5 +1,6 @@
 from flask import Flask, jsonify
 import json
+from Coordinates import * 
 
 
 app = Flask(__name__)
@@ -15,5 +16,6 @@ def home():
 
 @app.route('/cords=<string:cords>')
 def cordinates(cords):
+
     
     return jsonify(cords)
