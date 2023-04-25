@@ -17,9 +17,12 @@ def home():
 @app.route('/cords=<string:cords>')
 def cordinates(cords):
 
-    cordsArray = cords.split(',')
-    lat = float(cordsArray[0])
-    lon = float(cordsArray[1])
+    #cordsArray = cords.split(',')
+    #lat = float(cordsArray[0])
+    #lon = float(cordsArray[1])
+
+    lat = 42.00
+    lon = 42.00
 
     newCords = Coordinates(lat, lon)
     return str(lat) + ',' + str(lon)
