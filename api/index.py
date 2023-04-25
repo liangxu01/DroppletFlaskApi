@@ -1,7 +1,5 @@
 from flask import Flask, jsonify
 import json
-import geopy
-
 
 
 app = Flask(__name__)
@@ -18,9 +16,9 @@ def home():
 @app.route('/cords=<string:cords>')
 def cordinates(cords):
 
-    #cordsArray = cords.split(',')
-    #lat = float(cordsArray[0])
-    #lon = float(cordsArray[1])
+    cordsArray = cords.split(',')
+    lat = float(cordsArray[0])
+    lon = float(cordsArray[1])
 
     #newCords = Coordinates(lat, lon)
-    return "str(lat) + ',' + str(lon)"
+    return str(lat) + ',' + str(lon)
