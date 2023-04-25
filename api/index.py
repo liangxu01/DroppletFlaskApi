@@ -22,7 +22,7 @@ def cordinates(cords):
     #lon = float(cordsArray[1])
 
     lat = 42.00
-    lon = 42.00
+    lon = 42.00 
 
-    newCords = Coordinates(lat, lon)
+    #newCords = Coordinates(lat, lon)
     return str(lat) + ',' + str(lon)
