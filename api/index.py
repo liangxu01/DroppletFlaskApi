@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 import json
 import geopy
-from classes.utility import print5buildings
+from classes.test import printtest
 
 
 app = Flask(__name__)
@@ -11,7 +11,6 @@ def home():
 
     with open('nearestStation.json') as f:
         data = json.load(f)
-
 
     return jsonify(data)
 
