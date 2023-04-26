@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 import json
 import geopy
-from Classes.Utility import print5buildings
+from classes.utility import print5buildings
 
 
 app = Flask(__name__)
