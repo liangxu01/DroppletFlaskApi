@@ -21,5 +21,7 @@ def cordinates(cords):
     lat = float(cordsArray[0])
     lon = float(cordsArray[1])
 
+    printtest()
+
     #newCords = Coordinates(lat, lon)
-    return str(lat) + ',' + str(lon)
+    return printtest()
