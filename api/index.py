@@ -1,6 +1,7 @@
 from flask import Flask, jsonify
 import json
 import geopy
+from Coordinates import *
 
 
 app = Flask(__name__)
