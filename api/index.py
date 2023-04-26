@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 import json
 import geopy
-from classes.Utility import nearest_station_report
+from classes.IntializeData import IntializeBuildings
 
 
 app = Flask(__name__)
