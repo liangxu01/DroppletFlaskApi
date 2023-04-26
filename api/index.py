@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 import json
 import geopy
-from classes.test import printtest
+from classes.Utility import nearest_station_report
 
 
 app = Flask(__name__)
@@ -21,7 +21,7 @@ def cordinates(cords):
     lat = float(cordsArray[0])
     lon = float(cordsArray[1])
 
-    printtest()
+    
 
     #newCords = Coordinates(lat, lon)
-    return printtest()
+    return "Works!"
