@@ -22,5 +22,5 @@ def cordinates(cords):
     lon = float(cordsArray[1])
 
     report = createReport(lat, lon)
-    return jsonify(report)
+    return report
 
