@@ -54,7 +54,7 @@ def print5buildings(list):
         allBuildings.append(buildingDict)
     
 
-    return json.dump(allBuildings)
+    return json.dumps(allBuildings)
 
 def createReport(lat, lon):
     #Creates the Different Buildings According to CSV: 
