@@ -1,5 +1,5 @@
 from classes.Coordinates import *
-#from classes.WaterStations import *
+from classes.WaterStations import *
 
 class Building:
     def __init__(self, buildingName, totalFloors, lat, lon, buildingID):
