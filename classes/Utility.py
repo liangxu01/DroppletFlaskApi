@@ -1,4 +1,4 @@
-from IntializeData import *
+from classes.IntializeData import *
 import json
 
 """
@@ -54,26 +54,23 @@ def print5buildings(list):
         allBuildings.append(buildingDict)
     
 
-    with open("nearestStation.json", "w") as outfile:
-        json.dump(allBuildings, outfile, indent=4)
+    return json.dump(allBuildings)
 
-
-
-def main():
-
+def createReport(lat, lon):
     #Creates the Different Buildings According to CSV: 
     buildingList = IntializeBuildings("Data/building.csv")
 
     #Appends the Water Stations Into the Building Data Structure: 
     IntializeStations(buildingList, "Data/station.csv")
 
-    #Creates a structure containing users
-    userMap = InitializeUsers("Data/station.csv") 
-
-
-    cords = Coordinates(42.393433, -72.525697)
+    cords = Coordinates(lat, lon)
     closestBuilding = nearestBuilding(buildingList, cords)
-    print5buildings(closestBuilding)
+    return  print5buildings(closestBuilding)
+
+
+def main():
+
+    report = createReport(42.393433, -72.525697)
 
 if __name__ == "__main__":
     main()
