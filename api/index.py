@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 import json
 import geopy
-from classes.Coordinates import *
+from classes.Utility import *
 
 
 app = Flask(__name__)
@@ -21,6 +21,6 @@ def cordinates(cords):
     lat = float(cordsArray[0])
     lon = float(cordsArray[1])
 
-    newCords = Coordinates(lat, lon)
-    return "Works!"
+    report = createReport(lat, lon)
+    return jsonify(report)
 
