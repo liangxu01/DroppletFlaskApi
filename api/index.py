@@ -24,3 +24,9 @@ def cordinates(cords):
     report = createReport(lat, lon)
     return report
 
+@app.route('/user=<string:user>')
+def user(cords):
+    report = {'user': user, 'liters': 20}
+    return json.dumps(report)
+
+
