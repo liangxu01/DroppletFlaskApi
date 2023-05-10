@@ -25,7 +25,7 @@ def cordinates(cords):
     return report
 
 @app.route('/user=<string:user>')
-def user(cords):
+def user(user):
     report = {'user': user, 'liters': 20}
     return json.dumps(report)
 
