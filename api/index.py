@@ -26,12 +26,12 @@ def cordinates(cords):
 
 @app.route('/user=<string:user>/add=<int:water>')
 def user(user, water):
-    report = {'user': user, 'liters': water}
+    if water == 0:
+        report = {'user': user, 'liters': 0}
+    else: 
+        report = {'user': user, 'liters': water}
+
     return json.dumps(report)
 
-@app.route('/user=<string:user>')
-def user(user):
-    report = {'user': user, 'liters': 20}
-    return json.dumps(report)
 
 
