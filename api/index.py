@@ -35,7 +35,7 @@ def user(user, water):
     
 
     if water != 0:
-        addLitters(supabase, user, 10)
+        addLitters(supabase, user, water)
 
     curWater = getLitters(supabase, user)
     report = {'user': user, 'liters': curWater}
