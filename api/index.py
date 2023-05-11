@@ -30,7 +30,7 @@ def user(user, water):
     return json.dumps(report)
 
 @app.route('/user=<string:user>')
-def user(user, water):
+def user(user):
     report = {'user': user, 'liters': 20}
     return json.dumps(report)
 
