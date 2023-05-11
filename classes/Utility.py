@@ -53,7 +53,7 @@ def print5buildings(list):
         
         lat = cords.lat  
         lon = cords.lon
-        buildingDict = {"buildingName": buildName, "lat": lat, "lon": lon, "stationList": stationDictList}
+        buildingDict = {"id": buildingID, "buildingName": buildName, "lat": lat, "lon": lon, "stationList": stationDictList}
         allBuildings.append(buildingDict)
     
     finalReturn['places'] = allBuildings
