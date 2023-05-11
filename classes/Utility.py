@@ -19,16 +19,21 @@ def nearestBuilding(buildingList, cords):
     
 def print5buildings(list): 
 
+    finalReturn = {}
+    finalReturn['places'] = []
+
     allBuildings = []
 
     for i in range(0, 5):
         buildingTuple = list[i]
+        
         buildingObject = buildingTuple[0]
         distance = buildingTuple[1]
         cords = buildingObject.cords
 
         buildName = buildingObject.buildingName
         stationList = buildingObject.stationList
+        buildingID = buildingObject.buildingID
 
         print(buildName, distance, 'ft')
 
@@ -44,17 +49,16 @@ def print5buildings(list):
             notes = station.notes
 
             stationDict = {"stationID": stationID, "floor": floor, "status": status, "notes": notes}
-            print('\t',  "[stationID]:", stationID, "[floor]:", floor, "[status]:", status, "[notes]:", notes)
             stationDictList.append(stationDict)
         
         lat = cords.lat  
         lon = cords.lon
         buildingDict = {"buildingName": buildName, "lat": lat, "lon": lon, "stationList": stationDictList}
-
         allBuildings.append(buildingDict)
     
+    finalReturn['places'] = allBuildings
 
-    return json.dumps(allBuildings)
+    return json.dumps(finalReturn)
 
 def createReport(lat, lon):
     #Creates the Different Buildings According to CSV: 
