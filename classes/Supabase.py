@@ -17,8 +17,17 @@ def getLitters(supabase, username):
     curLitters = response1['liters']
     return curLitters
 
+def getDailyLitters(supabase, username):
+    response1 = supabase.table('Users').select('dailyLiters').match({
+            'username': username
+        }).execute().data[0]
+    
+    curLitters = response1['dailyLiters']
+    return curLitters
+
 def addLitters(supabase, username, liters):
 
+    #Update the total liters column
     response1 = supabase.table('Users').select('liters').match({
             'username': username
         }).execute().data[0]
@@ -31,10 +40,26 @@ def addLitters(supabase, username, liters):
             'username': username
         }).execute()
     
+    #Update the daily liters
+    response3 = supabase.table('Users').select('dailyLiters').match({
+            'username': username
+        }).execute().data[0]
+    
+    curLitters = response3['dailyLiters']
+
+    response4  = supabase.table('Users').update({
+            'dailyLiters': curLitters + liters
+        }).match({
+            'username': username
+        }).execute()
+    
+
 
 def main():
     url = "https://vrugylomdozzwscsaelr.supabase.co"
     key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZydWd5bG9tZG96endzY3NhZWxyIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4MzcyNTU1NiwiZXhwIjoxOTk5MzAxNTU2fQ.8Fiu6YZtZBX1ZSZ-N84Q3LZvK3ukzfjJC0lERR_JOHI"
-    
+    supabase: Client = create_client(url, key)
+
+    print(getLitters(supabase, "liangxu@umass.edu"))
 
 main()
