@@ -31,21 +31,6 @@ def addLitters(supabase, username, liters):
             'username': username
         }).execute()
     
-def addLittersDaily(supabase, username, liters):
-
-    addLitters(supabase, username, liters)
-
-    response1 = supabase.table('Users').select('dailyLiters').match({
-            'username': username
-        }).execute().data[0]
-    
-    curLitters = response1['dailyLiters']
-
-    response2  = supabase.table('Users').update({
-            'dailyLiters': curLitters + liters
-        }).match({
-            'username': username
-        }).execute()
 
 def main():
     url = "https://vrugylomdozzwscsaelr.supabase.co"
