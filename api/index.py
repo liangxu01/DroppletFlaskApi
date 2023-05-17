@@ -1,8 +1,8 @@
 from flask import Flask, jsonify
 import json
-import geopy
 from classes.Utility import *
 from classes.Supabase import *
+
 
 
 app = Flask(__name__)
@@ -53,7 +53,6 @@ def user(user, water):
 
 
     return json.dumps(report)
-
 
 
 

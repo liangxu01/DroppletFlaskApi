@@ -7,6 +7,7 @@ Handles all the calls to Supabase
 
 import os
 from supabase import create_client, Client
+import time
 
 
 def getLitters(supabase, username):
@@ -52,14 +53,25 @@ def addLitters(supabase, username, liters):
         }).match({
             'username': username
         }).execute()
-    
 
+#Resets the entire daily column to 0:
+def resetDaily(supabase): 
+    userList  = supabase.table('Users').select('username').execute().data
+    for user in userList:
+        print('Reseting: ', user)
+        username = user['username']
+        response4  = supabase.table('Users').update({
+            'dailyLiters': 0
+        }).match({
+            'username': username
+        }).execute()
 
 def main():
     url = "https://vrugylomdozzwscsaelr.supabase.co"
     key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZydWd5bG9tZG96endzY3NhZWxyIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4MzcyNTU1NiwiZXhwIjoxOTk5MzAxNTU2fQ.8Fiu6YZtZBX1ZSZ-N84Q3LZvK3ukzfjJC0lERR_JOHI"
     supabase: Client = create_client(url, key)
 
-    print(getLitters(supabase, "liangxu@umass.edu"))
+    
+    resetDaily(supabase)
 
 main()
